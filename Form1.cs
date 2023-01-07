@@ -64,6 +64,10 @@ namespace PPM
                 //line = sr.ReadLine().Split(' ');
                 lineInstruction.Add(substrings[0]);
             }
+            progressBar.Maximum = lineInstruction.Count;
+            label4.Text = lineInstruction.Count.ToString();
+            label4.Invalidate();
+            label4.Update();
             Convertor();
         }
 
@@ -90,6 +94,7 @@ namespace PPM
             {
                 istorieglobala += Convert.ToString(convertedBranchState[i]);
                 predictedValues.Add(-1);
+                progressBar.Value +=1;
             }
 
         }
@@ -201,6 +206,7 @@ namespace PPM
             for (int i = nrIstorieGolbala; i < convertedBranchState.Count - 1; i++)
             {
                 Prediction();
+                progressBar.Value += 1;
             }
             Accuracy();
         }
