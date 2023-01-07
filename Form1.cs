@@ -69,7 +69,7 @@ namespace PPM
 
         private void Convertor()
         {
-            foreach(string s in lineInstruction)
+            foreach (string s in lineInstruction)
             {
                 if (s.IndexOf('B') == 0)
                 {
@@ -96,8 +96,6 @@ namespace PPM
 
         private void HRgUpdate()
         {
-            //if (convertedBranchState[nrInstructiuneUrmatoare] != null)
-            //{
             Debug.WriteLine("HRgUpdate");
             istorieglobala = istorieglobala.Remove(0, 1);
             Debug.WriteLine(istorieglobala);
@@ -105,7 +103,6 @@ namespace PPM
             //istorieglobala = istorieglobala.Insert(nrIstorieGolbala, Convert.ToString(convertedBranchState[nrInstructiuneUrmatoare]));
             istorieglobala += Convert.ToString(convertedBranchState[nrInstructiuneUrmatoare]);
             nrInstructiuneUrmatoare++;
-            //}
         }
 
         private void Prediction()
@@ -119,7 +116,7 @@ namespace PPM
             {
                 int found = 0;
                 int count = 0; //de cate ori s-a gasit un pattern
-                Debug.WriteLine("cnt " + cnt++);
+                Debug.WriteLine("bucla predictie #" + cnt++);
                 Debug.WriteLine("pattern: " + pattern);
                 if (pattern.Length == 1)
                 {
@@ -201,7 +198,7 @@ namespace PPM
             //StreamReader sr = new StreamReader(textBoxFileName.Text);
             ReadFromFile();
             HRg();
-            for (int i = nrIstorieGolbala ; i < convertedBranchState.Count -1; i++)
+            for (int i = nrIstorieGolbala; i < convertedBranchState.Count - 1; i++)
             {
                 Prediction();
             }
