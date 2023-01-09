@@ -14,13 +14,12 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 namespace PPM
 {
     public partial class Form1 : Form
-    {
-        //string[] lineInstruction = new string[50000]; //x
+    {      
         List<string> lineInstruction = new List<string>();
-        //int[] convertedBranchState = new int[50000];
-        List<int> convertedBranchState = new List<int>();
-        //int[] predictedValues = new int[50000];
+        
+        List<int> convertedBranchState = new List<int>();      
         List<int> predictedValues = new List<int>();
+        
         string istorieglobala;
         int nrIstorieGolbala, nrInstructiuneUrmatoare;
         public Form1()
@@ -56,14 +55,13 @@ namespace PPM
 
 
         private void ReadFromFile()
-        {
-            //string[] line = new string[3];
+        {          
             foreach (string line in System.IO.File.ReadLines(textBoxFileName.Text))
             {
                 string[] substrings = line.Split(',');
-                //line = sr.ReadLine().Split(' ');
                 lineInstruction.Add(substrings[0]);
             }
+
             progressBar.Maximum = lineInstruction.Count;
             label4.Text = lineInstruction.Count.ToString();
             label4.Invalidate();
@@ -96,7 +94,6 @@ namespace PPM
                 predictedValues.Add(-1);
                 progressBar.Value +=1;
             }
-
         }
 
         private void HRgUpdate()
